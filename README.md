@@ -105,15 +105,20 @@ if __name__=="__main__":
 ```
 5. Implementar un programa que ingrese un número de 2 a 50 y muestre sus divisores.
 ```python
+def divisores (num : int) -> int: # la funcion calcula los divisores del numero por medio de dividirlo sobre un denominador
+    den = 1 # se inicializa el denominador en 1
+    print ("Los divisores de ", num, " son: ")
+    while den < num: # el denominador debe ser mayor estricto al numerador
+        if num % den == 0 : # se evalua si es un divisor (tiene residuo 0)
+            print (den) # conforme se confirma el divisor se imprime
+        den += 1 # incremento de 1
+    return num # regresa la variable de ingreso puesto todo numero es divisor de si mismo
+
 if __name__=="__main__":
-
-    zahl = int(input("Ingrese el numero con el que desea iniciar: "))
-
-    while zahl >= 2:
-        if zahl%2 != 0: # se revisa que el indice sea par
-            zahl = zahl-1 # se vuelve par si es necesario
-        print(zahl)
-        zahl -= 2 # asignacion de decremento
+    zahl : int = 2
+    while zahl <= 50: # se genera un bucle para evaluar los divisores de 2 a 50 
+        print (divisores(zahl))
+        zahl += 1 
 ```
 6. Implementar el algoritmo que muestre los números primos del 1 al 100. Nota: use funciones
 ```python
