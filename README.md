@@ -92,15 +92,16 @@ if __name__=="__main__":
 ```
 4. Imprimir el factorial de un número natural n dado.
 ```python
+def factorial (num : int) -> int:
+    fact = 1
+    while num > 1: # el indice del while debe ser mayor estricto de uno, pues fact ya hará el producto de 1
+        fact *= num # conforme el ciclo while corra se multiplicara por los numeros menores al indice
+        num -= 1 # decremento de 1
+    return fact
+
 if __name__=="__main__":
-
-    zahl = int(input("Ingrese el numero con el que desea iniciar: "))
-
-    while zahl >= 2:
-        if zahl%2 != 0: # se revisa que el indice sea par
-            zahl = zahl-1 # se vuelve par si es necesario
-        print(zahl)
-        zahl -= 2 # asignacion de decremento
+    zahl = int(input("Ingrese el numero a calcular su factorial: "))
+    print ("El factorial de ", zahl, " es ", factorial(zahl))
 ```
 5. Implementar un programa que ingrese un número de 2 a 50 y muestre sus divisores.
 ```python
