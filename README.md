@@ -11,12 +11,13 @@ flowchart TD
     C --> D{"¿zahl &lt;= 100?"}
     D -- No --> H["Fin"]
     D -- Sí --> E["Calcular cahl = zahl al cuadrado"]
-    E --> F["Imprimir zahl y su cuadrado"]
+    E --> F["Imprimir zahl y cahl"]
     F --> G["Incrementar zahl en 1"]
     G --> D
 
     A@{ shape: rounded}
     H@{ shape: rounded}
+    F@{ shape: in-out}
     G@{ shape: rect}
 ```
 ```python
@@ -43,7 +44,9 @@ flowchart TD
     I --> G
 
     A@{ shape: event}
+    E@{ shape: in-out}
     J@{ shape: event}
+    H@{ shape: in-out}
 ```
 ```python
 if __name__=="__main__":
@@ -61,20 +64,20 @@ if __name__=="__main__":
 3. Imprimir los números pares en forma descendente hasta 2 que son menores o iguales a un número natural n ≥ 2 dado
 ```mermaid
 flowchart TD
-    A["Inicio"] --> B["Inicializar zahl = 1 (indice impares)"]
-    B --> C["Inicializar numb = 2 (indice pares)"]
-    C --> D{"¿zahl &lt;= 1000?"}
-    D -- Sí --> E["Imprimir zahl"]
-    E --> F["Incrementar zahl en 2"]
-    F --> D
-    D -- No --> G{"¿numb &lt;= 1000?"}
-    G -- No --> J["Fin"]
-    G -- Sí --> H["Imprimir numb"]
-    H --> I["Incrementar numb en 2"]
-    I --> G
+    A["Inicio"] --> B["Solicitar número inicial (zahl)"]
+    B --> C{"¿zahl >= 2?"}
+    C -- No --> D["Fin"]
+    C -- Sí --> E{"¿zahl es impar?"}
+    E -- Sí --> F["Hacer zahl par (zahl = zahl - 1)"]
+    F --> G["Imprimir zahl"]
+    E -- No --> G
+    G --> H["Decrementar zahl (zahl = zahl - 2)"]
+    H --> C
 
     A@{ shape: event}
-    J@{ shape: event}
+    B@{ shape: out-in}
+    D@{ shape: event}
+    G@{ shape: in-out}
 ```
 ```python
 if __name__=="__main__":
@@ -82,11 +85,44 @@ if __name__=="__main__":
     zahl = int(input("Ingrese el numero con el que desea iniciar: "))
 
     while zahl >= 2:
-        if zahl%2 != 0: # se revisa que sea par
+        if zahl%2 != 0: # se revisa que el indice sea par
             zahl = zahl-1 # se vuelve par si es necesario
         print(zahl)
-        zahl -= 1 # asignacion de decremento
+        zahl -= 2 # asignacion de decremento
 ```
-7. Imprimir el factorial de un número natural n dado.
-8. Implementar un programa que ingrese un número de 2 a 50 y muestre sus divisores.
-9. Implementar el algoritmo que muestre los números primos del 1 al 100. Nota: use funciones
+4. Imprimir el factorial de un número natural n dado.
+```python
+if __name__=="__main__":
+
+    zahl = int(input("Ingrese el numero con el que desea iniciar: "))
+
+    while zahl >= 2:
+        if zahl%2 != 0: # se revisa que el indice sea par
+            zahl = zahl-1 # se vuelve par si es necesario
+        print(zahl)
+        zahl -= 2 # asignacion de decremento
+```
+5. Implementar un programa que ingrese un número de 2 a 50 y muestre sus divisores.
+```python
+if __name__=="__main__":
+
+    zahl = int(input("Ingrese el numero con el que desea iniciar: "))
+
+    while zahl >= 2:
+        if zahl%2 != 0: # se revisa que el indice sea par
+            zahl = zahl-1 # se vuelve par si es necesario
+        print(zahl)
+        zahl -= 2 # asignacion de decremento
+```
+6. Implementar el algoritmo que muestre los números primos del 1 al 100. Nota: use funciones
+```python
+if __name__=="__main__":
+
+    zahl = int(input("Ingrese el numero con el que desea iniciar: "))
+
+    while zahl >= 2:
+        if zahl%2 != 0: # se revisa que el indice sea par
+            zahl = zahl-1 # se vuelve par si es necesario
+        print(zahl)
+        zahl -= 2 # asignacion de decremento
+```
