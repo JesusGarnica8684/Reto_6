@@ -108,7 +108,7 @@ if __name__=="__main__":
 def divisores (num : int) -> int: # la funcion calcula los divisores del numero por medio de dividirlo sobre un denominador
     den = 1 # se inicializa el denominador en 1
     print ("Los divisores de ", num, " son: ")
-    while den < num: # el denominador debe ser mayor estricto al numerador
+    while den < num: # el denominador debe ser menor estricto al numerador
         if num % den == 0 : # se evalua si es un divisor (tiene residuo 0)
             print (den) # conforme se confirma el divisor se imprime
         den += 1 # incremento de 1
@@ -122,13 +122,23 @@ if __name__=="__main__":
 ```
 6. Implementar el algoritmo que muestre los números primos del 1 al 100. Nota: use funciones
 ```python
+def divisores (num : int) -> bool: 
+    bandera = False 
+    # un primo es un numero que solo es divisble entre el mismo y 1, puesto que todo numero ya es divisible 
+    # sobre uno y el mismo los dos casos se deprecían y se busca los números que tengan más de un divisor.
+    den = 2 # se inicializa el denominador en 2, de esta manera se evita la divison sobre uno
+    while den < num: # el denominador debe ser menor estricto al numerador, no se puede dividir sobre si mismo
+        if num % den == 0: # se evalua si es un divisor de numeros diferentes
+            bandera = True # si lo es, se asigna valor verdadero a un booleano
+        den += 1 
+    return bandera # regresa el booleano (el numero no es primo)
+
 if __name__=="__main__":
-
-    zahl = int(input("Ingrese el numero con el que desea iniciar: "))
-
-    while zahl >= 2:
-        if zahl%2 != 0: # se revisa que el indice sea par
-            zahl = zahl-1 # se vuelve par si es necesario
-        print(zahl)
-        zahl -= 2 # asignacion de decremento
+    zahl : int = 2
+    while zahl <= 100: # se genera un bucle para evaluar los divisores de 2 a 100
+        flag = divisores(zahl) # se llama la funcion y se toma el valor booleano
+        if flag != True: # si el valor booleano no es verdadero, o sea (no es primo), 
+        # el numero no-no es primo, por doble negacion la logica es verdadera, es primo
+            print (zahl, " es primo.") 
+        zahl += 1 
 ```
